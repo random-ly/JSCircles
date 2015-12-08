@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Javascript Box - OOP demo</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
 
@@ -83,7 +84,19 @@
 	document.onclick = function(e) {
 		playground.createNewCircle(e.x,e.y);
 	}
-	
+	//Resize
+$(document).ready(function() {
+	function setHeightWidth() {
+    	windowHeight = $(window).innerHeight();
+    	windowWidth = $(window).innerWidth();
+    	$('svg').css('min-height', windowHeight);
+    	$('svg').css('min-width', windowWidth);
+  	};
+  	setHeightWidth();
+	$(window).resize(function() {
+		setHeightWidth();
+	});
+});
 	</script>
 
 </body>
